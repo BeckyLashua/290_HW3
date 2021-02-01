@@ -19,7 +19,7 @@ function Student(name, major, yearInSchool, club) {
   and an array of objects appropriate for that comparator and it will return a new array 
   which is sorted with the largest object in index 0 and the smallest in the last index*/
   function sortArr(comparator, array) {
-    // your code here
+    console.log("sortArr called");
   }
   
   /* A comparator takes two arguments and uses some algorithm to compare them. If the first 
@@ -39,6 +39,11 @@ function Student(name, major, yearInSchool, club) {
   /* This compares two students based on their year in school. Sort in descending order.*/
   function yearComparator(student1, student2) {
     // your code here
+    if (student1.yearInSchool >= student2.yearInSchool) {
+      return true;
+    } else {
+      return false;
+    }
   }
   
   /* This compares two students based on their major. It should be case insensitive and 
