@@ -63,8 +63,33 @@ function Student(name, major, yearInSchool, club) {
   has the higher year in school should be "greater."*/
   function clubComparator(student1, student2) {
     // your code here
+    var clubs = ["improv", "cat", "art", "guitar"];
+    index1 = getIndex(clubs, student1.club);
+    index2 = getIndex(clubs, student2.club);
+    // compare index
+    if (index1 == index2) { // same type return greater year
+      return yearComparator(student1, student2);
+    } else if (index1 < index2) { // first is greater
+      return true;
+    } else {  // second is greater
+      return false;
+    }
   }
   
+  function getIndex(arr, elem) {
+    // search for element in array 
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].toLowerCase() == elem.toLowerCase()) {
+        return i;
+      }
+      else {
+        // element not found, so return index num of length
+        return arr.length;
+      }
+    }
+  }
+
+
   /* Your program should output the following to the console.log, including each of the opening and closing 
   stars. All values in parenthesis should be replaced with appropriate values. To accomplish this, you will 
   have to sort the array of students using each comparator and then loop through the array and and call logMe
