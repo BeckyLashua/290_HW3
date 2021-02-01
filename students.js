@@ -17,10 +17,20 @@ var students = [
   
 /* This function sorts arrays using an arbitrary comparator. You pass it a comparator 
 and an array of objects appropriate for that comparator and it will return a new array 
-which is sorted with the largest object in index 0 and the smallest in the last index*/
+which is sorted with the largest object in index 0 and the smallest in the last index
+Source: Used bubble sort method inspired by this article:
+https://medium.com/javascript-algorithms/javascript-algorithms-bubble-sort-3d27f285c3b2*/
 function sortArr(comparator, array) {
-  var outputArr = [];
-
+  for (var i = 0; i < array.length; i++) {
+    for (var j = 0; j < array.length - 1; j++) {
+      if (comparator(array[j], array[j+1]) == false) {
+        var temp = array[j];
+        array[j] = array[j+1];
+        array[j+1] = temp;
+      }
+    }
+  }
+  return array;
 }
 
 /* This member function takes in a bool for including club
@@ -143,8 +153,7 @@ function getIndex(arr, elem) {
 
 function displaySortedStudents(arr) {
   // generate array from sorting by year
-  // var yearArr = sortArr(yearComparator, students);
-  var yearArr = students;
+  var yearArr = sortArr(yearComparator, arr);
   console.log('**********');
   console.log("Students sorted by year in school are:");
   for (var i = 0; i < yearArr.length; i++) {
@@ -152,8 +161,7 @@ function displaySortedStudents(arr) {
   }
 
   // generate array from sorting by major
-  // var majorArr = sortArr(majorComparator, students);
-  var majorArr = students;
+  var majorArr = sortArr(majorComparator, arr);
   console.log('**********');
   console.log("Students sorted by major are:");
   for (var i = 0; i < majorArr.length; i++) {
@@ -161,8 +169,7 @@ function displaySortedStudents(arr) {
   }
 
   // generate array form sorting by club
-  // var clubArr = sortArr(clubComparator, students);
-  var clubArr = students;
+  var clubArr = sortArr(clubComparator, arr);
   console.log('**********');
   console.log("Students sorted by club affiliation are:");
   for (var i = 0; i < clubArr.length; i++) {
