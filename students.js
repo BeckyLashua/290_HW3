@@ -50,7 +50,11 @@ function Student(name, major, yearInSchool, club) {
   makes which are alphabetically earlier in the alphabet are "greater" than ones that 
   come later (from A-Z).*/
   function majorComparator(student1, student2) {
-    // your code here
+    if (student1.major.toLowerCase() <= student2.major.toLowerCase()) {
+      return true;
+    } else {
+      return false;
+    }
   }
   
   /* This compares two students based on the club they're in. The ordering from "greatest" 
