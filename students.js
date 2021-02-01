@@ -89,8 +89,8 @@ has the higher year in school should be "greater."*/
 function clubComparator(student1, student2) {
   // your code here
   var clubs = ["improv", "cat", "art", "guitar"];
-  index1 = getIndex(clubs, student1.club);
-  index2 = getIndex(clubs, student2.club);
+  var index1 = getIndex(clubs, student1.club);
+  var index2 = getIndex(clubs, student2.club);
   // compare index
   if (index1 == index2) { // same type return greater year
     return yearComparator(student1, student2);
@@ -110,11 +110,9 @@ function getIndex(arr, elem) {
     if (arr[i].toLowerCase() == elem.toLowerCase()) {
       return i;
     }
-    else {
-      // element not found, so return index num of length
-      return arr.length;
-    }
   }
+  // element not found, so return index num of length
+  return arr.length;
 }
 
 
