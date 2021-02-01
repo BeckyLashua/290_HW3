@@ -19,8 +19,24 @@ function Student(name, major, yearInSchool, club) {
   and an array of objects appropriate for that comparator and it will return a new array 
   which is sorted with the largest object in index 0 and the smallest in the last index*/
   function sortArr(comparator, array) {
-    console.log("sortArr called");
+    var outputArr = [];
+
   }
+
+  /* This member function takes in a bool for including club
+  affiliation, and prints the student data, including club
+  affiliation if true was passed. */
+  Student.prototype.logMe = function(clubIncluded) {
+    var outputStr = this.name + ' - ' 
+    + this.major + ' - ' + this.yearInSchool;
+    if (clubIncluded) {
+      outputStr += ' - ' + this.club;
+    }
+    console.log(outputStr);
+  };
+
+ 
+  
   
   /* A comparator takes two arguments and uses some algorithm to compare them. If the first 
   argument is larger or greater than the 2nd it returns true, otherwise it returns false.
@@ -76,6 +92,9 @@ function Student(name, major, yearInSchool, club) {
     }
   }
   
+  /* This function returns the index of an element in an array
+  If it doesn't exist in the array, it just returns the length
+  of the array*/
   function getIndex(arr, elem) {
     // search for element in array 
     for (var i = 0; i < arr.length; i++) {
